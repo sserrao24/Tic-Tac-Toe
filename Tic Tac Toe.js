@@ -4,8 +4,8 @@ var gameBoard =  [0,1,2,
 				  3,4,5,
 				  6,7,8];
 
-var combo = 
-				[[0,1,2],	// 0
+var combo = 								//0xxxxxxxx0xxxxxxx
+				[[0,1,2],	// 0			//0xxxxxxxx
 				 [3,4,5],	// 1
 				 [6,7,8],	// 2
 				 [0,3,6],	// 3
@@ -38,6 +38,7 @@ else{
 	playerO();
 }
 
+//player X turn to choose a spot
 	function playerX(){
 		var choice = prompt("Input the numbered spot you want to place X in: ");
 		//while(gameBoard[choice]!== "x" || (gameBoard[choice]) !== "o" ){				//trying to figure a loop here
@@ -54,11 +55,7 @@ else{
 	}
 
 
-
-
-
-
-// I don't understand why the console.log(combo[i]) is logging [3,4,5] twice
+//did this connect 3 in a row?
 var combo = 
 				[["x","x","x"],	// 0
 				 [3,4,5],	// 1
@@ -68,12 +65,29 @@ var combo =
 				 [2,5,8],	// 5
 				 [0,4,8],	// 6
 				 [2,4,6]];	// 7
+var xxx = ["x","x","x"];
 
 	for(var i=0; i<combo.length; i++){
-		if(combo[i] == 3,4,5){
-		console.log(combo[i]);
+		if(JSON.stringify(combo[i]) == JSON.stringify(xxx)){
+			console.log("You're a winner!");
 		}	
 		else{
-			console.log("sorry")
+			console.log("Keep playing.");
 		}
+	}
+
+//are all indexes filled in the array?
+var sum = 0;
+
+	for(var i=0;i<gameBoard.length; i++){
+		if(gameBoard[i]<9){
+			sum += gameBoard[i];
+		}
+	}
+
+	if(sum = 0){
+		alert = "End Game. It's a tie."
+	}
+	else{
+		playerO();
 	}
